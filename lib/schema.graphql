@@ -1,0 +1,38 @@
+type Comunidad{
+  _id: ID!
+  nombre: String!
+  cantidad: Int!
+  departamento: String!
+  municipio: String!
+  prioridad: String!
+  status: Boolean
+
+}
+
+  type Query {
+    "Devuelve las comunidades asignadas"
+    getComunidades: [Comunidad]
+    "Devuelve un curso"
+    getComunidad(id: ID!): Comunidad
+  }
+
+  type Mutation{
+    "Creamos un nuevo registro"
+    createComunidad(input: ComunidadInput!) : Comunidad
+    "Editamos el registro para actualizar el estatus de la comunidad"
+    editComunidad(_id: ID!, input: ComunidadActualizarStatus): Comunidad
+  }
+
+  input ComunidadInput{
+    nombre: String!
+    cantidad: Int!
+    departamento: String!
+    municipio: String!
+    prioridad: String!
+    status: Boolean
+  }
+
+ input ComunidadActualizarStatus {
+  status: Boolean!
+}
+ 
