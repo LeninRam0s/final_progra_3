@@ -1,3 +1,5 @@
+"DECLARACION DE LOS TIPOS DE DATOS DEL ESQUEMA COMUNIDAD"
+
 type Comunidad{
   _id: ID!
   nombre: String!
@@ -12,8 +14,10 @@ type Comunidad{
   type Query {
     "Devuelve las comunidades asignadas"
     getComunidades: [Comunidad]
-    "Devuelve un curso"
+    "Devuelve una Comunidad segun id"
     getComunidad(id: ID!): Comunidad
+    "Elimina el registro de la comunidad segun su id"
+    deleteComunidad(_id: ID!): [Comunidad]
   }
 
   type Mutation{
@@ -21,6 +25,7 @@ type Comunidad{
     createComunidad(input: ComunidadInput!) : Comunidad
     "Editamos el registro para actualizar el estatus de la comunidad"
     editComunidad(_id: ID!, input: ComunidadActualizarStatus): Comunidad
+    
   }
 
   input ComunidadInput{

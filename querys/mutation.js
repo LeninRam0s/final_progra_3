@@ -1,6 +1,6 @@
 'use strict'
 
-const connectDb = require('../db/db')
+const connectDb = require('../db/db')//Ubicacion del Archivo DB
 const { ObjectID } = require('mongodb')
 const errorHandler = require('../lib/errores')
 
@@ -40,4 +40,6 @@ module.exports = {
     
         return comunidad
       }
+      
+
 }
