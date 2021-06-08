@@ -1,5 +1,5 @@
 'use strict'
-
+//API
 require('dotenv').config()
 const express = require('express');
 const cors = require('cors')
@@ -14,7 +14,7 @@ const { assertWrappingType } = require('graphql');
 var app = express();
 const port = process.env.port || 3000
  
-// definiendo el esquema
+// definiendo el esquema inicial
 const typeDefs = readFileSync(
   join(__dirname, 'lib', 'schema.graphql'),
   'utf-8'
@@ -26,7 +26,7 @@ app.use(cors())
 app.use('/api', graphqlHTTP({
   schema: schema,
   rootValue: resolvers,
-  graphiql: true
+  graphiql: true //true par mostrar la interfaz grafica de GraphQL en la web
 }));
 app.listen(port);
 console.log(`El servidor GraphQL de K || L esta corriendo en http://localhost:${port}/api`);

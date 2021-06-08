@@ -34,5 +34,20 @@ module.exports = {
     }
 
     return comunidad
+  },
+  deleteComunidad: async (root, { _id}) => {
+    let db
+    let comunidades = []
+
+    try {
+      db = await connectDb()
+      await db.collection('comunidades').removeOne(
+        { _id: ObjectID(_id) }
+      )
+      comunidades = await db.collection('comunidades').find().toArray()
+    } catch (error) {
+      errorHandler(error)
+    }
+    return comunidades
   }
 }
