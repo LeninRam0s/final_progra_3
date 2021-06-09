@@ -1,6 +1,9 @@
 "DECLARACION DE LOS TIPOS DE DATOS DEL ESQUEMA COMUNIDAD"
 
+
+"ENTIDAD"
 type Comunidad{
+  "PROPIEDADES"
   _id: ID!
   nombre: String!
   cantidad: Int!
